@@ -1,6 +1,6 @@
-{% set version = '2.46.0' %}
+{% set version = "3.0.0" %}
 {% set name = 'mice' %}
-{% set hash = '5d3109ab3e9a84cb9ba60b0ab477d4e3ed9326fe4831fd99bbf1ed7fcca45bbe' %}
+{% set hash = '98b6bb1c5f8fb099bd0024779da8c865146edb25219cc0c9542a8254152c0add' %}
 
 package:
   name: 'r-{{ name }}'
