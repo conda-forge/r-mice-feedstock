@@ -1,9 +1,9 @@
 About r-mice
 ============
 
-Home: http://stefvanbuuren.github.io/mice/
+Home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.nl , http://www.multiple-imputation.com
 
-Package license: GPL-2,GPL-3
+Package license: GPL-2 | GPL-3
 
 Feedstock license: BSD 3-Clause
 
@@ -16,7 +16,7 @@ Current build status
 
 [![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-mice-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-mice-feedstock)
 [![OSX](https://img.shields.io/travis/conda-forge/r-mice-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-mice-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-mice-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-mice-feedstock/branch/master)
 
 Current release info
 ====================
