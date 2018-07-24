@@ -35,7 +35,10 @@ requirements:
     - r-nnet
     - r-rpart
     - r-survival
-
+    - r-broom
+    - r-dplyr
+    - r-mitml
+    - r-rlang
   run:
     - r-base
     - r-mass
@@ -44,6 +47,10 @@ requirements:
     - r-nnet
     - r-rpart
     - r-survival
+    - r-broom
+    - r-dplyr
+    - r-mitml
+    - r-rlang
 
 test:
   commands:
@@ -53,7 +60,8 @@ about:
   home: 'http://stefvanbuuren.github.io/mice/'
   license: 'GPL-2,GPL-3'
   license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Multiple imputation using Fully Conditional Specification (FCS) implemented by the
+  summary: |
+    Multiple imputation using Fully Conditional Specification (FCS) implemented by the
     MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
     Each variable has its own imputation model. Built-in imputation models are provided
     for continuous data (predictive mean matching, normal), binary data (logistic regression),
@@ -61,7 +69,7 @@ about:
     data (proportional odds). MICE can also impute continuous two-level data (normal
     model, pan, second-level variables). Passive imputation can be used to maintain
     consistency between variables. Various diagnostic plots are available to inspect
-    the quality of the imputations.'
+    the quality of the imputations.
   license_family: 'GPL'
 
 extra:
