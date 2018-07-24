@@ -1,6 +1,6 @@
-{% set version = '2.46.0' %}
+{% set version = "3.2.0" %}
 {% set name = 'mice' %}
-{% set hash = '5d3109ab3e9a84cb9ba60b0ab477d4e3ed9326fe4831fd99bbf1ed7fcca45bbe' %}
+{% set hash = "ace986c35efb56dba9abd982e58a7aef5527b66edb376ed70ae7d287d3218566" %}
 
 package:
   name: 'r-{{ name }}'
@@ -35,7 +35,10 @@ requirements:
     - r-nnet
     - r-rpart
     - r-survival
-
+    - r-broom
+    - r-dplyr
+    - r-mitml
+    - r-rlang
   run:
     - r-base
     - r-mass
@@ -44,6 +47,10 @@ requirements:
     - r-nnet
     - r-rpart
     - r-survival
+    - r-broom
+    - r-dplyr
+    - r-mitml
+    - r-rlang
 
 test:
   commands:
@@ -53,7 +60,8 @@ about:
   home: 'http://stefvanbuuren.github.io/mice/'
   license: 'GPL-2,GPL-3'
   license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: 'Multiple imputation using Fully Conditional Specification (FCS) implemented by the
+  summary: |
+    Multiple imputation using Fully Conditional Specification (FCS) implemented by the
     MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
     Each variable has its own imputation model. Built-in imputation models are provided
     for continuous data (predictive mean matching, normal), binary data (logistic regression),
@@ -61,7 +69,7 @@ about:
     data (proportional odds). MICE can also impute continuous two-level data (normal
     model, pan, second-level variables). Passive imputation can be used to maintain
     consistency between variables. Various diagnostic plots are available to inspect
-    the quality of the imputations.'
+    the quality of the imputations.
   license_family: 'GPL'
 
 extra:
