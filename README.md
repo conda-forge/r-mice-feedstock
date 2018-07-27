@@ -7,7 +7,16 @@ Package license: GPL-2,GPL-3
 
 Feedstock license: BSD 3-Clause
 
-Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.
+Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the
+MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
+Each variable has its own imputation model. Built-in imputation models are provided
+for continuous data (predictive mean matching, normal), binary data (logistic regression),
+unordered categorical data (polytomous logistic regression) and ordered categorical
+data (proportional odds). MICE can also impute continuous two-level data (normal
+model, pan, second-level variables). Passive imputation can be used to maintain
+consistency between variables. Various diagnostic plots are available to inspect
+the quality of the imputations.
+
 
 
 
