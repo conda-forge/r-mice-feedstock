@@ -1,22 +1,15 @@
 About r-mice
 ============
 
-Home: http://stefvanbuuren.github.io/mice/
+[![Powered by NumFOCUS](https://img.shields.io/badge/powered%20by-NumFOCUS-orange.svg?style=flat&colorA=E1523D&colorB=007D8A)](http://numfocus.org)
 
-Package license: GPL-2,GPL-3
+Home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.nl , http://www.multiple-imputation.com
+
+Package license: GPL-2 | GPL-3
 
 Feedstock license: BSD 3-Clause
 
-Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the
-MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
-Each variable has its own imputation model. Built-in imputation models are provided
-for continuous data (predictive mean matching, normal), binary data (logistic regression),
-unordered categorical data (polytomous logistic regression) and ordered categorical
-data (proportional odds). MICE can also impute continuous two-level data (normal
-model, pan, second-level variables). Passive imputation can be used to maintain
-consistency between variables. Various diagnostic plots are available to inspect
-the quality of the imputations.
-
+Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.
 
 
 
@@ -25,7 +18,7 @@ Current build status
 
 [![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-mice-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-mice-feedstock)
 [![OSX](https://img.shields.io/travis/conda-forge/r-mice-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-mice-feedstock)
-![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-mice-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-mice-feedstock/branch/master)
 
 Current release info
 ====================
@@ -113,3 +106,10 @@ In order to produce a uniquely identifiable distribution:
  * If the version of a package **is** being increased, please remember to return
    the [``build/number``](https://conda.io/docs/user-guide/tasks/build-packages/define-metadata.html#build-number-and-string)
    back to 0.
+
+Feedstock Maintainers
+=====================
+
+* [@conda-forge/r](https://github.com/conda-forge/r/)
+* [@slacalle](https://github.com/slacalle/)
+
