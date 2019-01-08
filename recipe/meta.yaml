@@ -1,22 +1,20 @@
-{% set version = "3.3.0" %}
-{% set name = 'mice' %}
-{% set hash = "ddaf7f01f5606f3e15af05066e2f6c3ac5b6bdcc78f019e3890dab32f1ba11dc" %}
+{% set version = '3.3.0' %}
+{% set posix = 'm2-' if win else '' %}
+{% set native = 'm2w64-' if win else '' %}
 
 package:
-  name: 'r-{{ name }}'
-  version: '{{ version }}'
+  name: r-mice
+  version: {{ version|replace("-", "_") }}
 
 source:
-  fn: '{{ name }}_{{ version }}.tar.gz'
   url:
-    - 'https://cran.r-project.org/src/contrib/{{ name }}_{{ version }}.tar.gz'
-    - 'https://cran.r-project.org/src/contrib/Archive/{{ name }}/{{ name }}_{{ version }}.tar.gz'
-  sha256: '{{ hash }}'
+    - {{ cran_mirror }}/src/contrib/mice_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/mice/mice_{{ version }}.tar.gz
+  sha256: ddaf7f01f5606f3e15af05066e2f6c3ac5b6bdcc78f019e3890dab32f1ba11dc
 
 build:
-  skip: true  # [win]
-  number: 1000
-
+  merge_build_host: True  # [win]
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
@@ -25,43 +23,47 @@ requirements:
   build:
     - {{ compiler('c') }}        # [not win]
     - {{ compiler('cxx') }}      # [not win]
-    - make
-
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-mass
     - r-rcpp
-    - r-lattice
-    - r-nnet
-    - r-rpart
-    - r-survival
     - r-broom
     - r-dplyr
+    - r-lattice
     - r-mitml
+    - r-nnet
     - r-rlang
+    - r-rpart
+    - r-survival
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-mass
     - r-rcpp
-    - r-lattice
-    - r-nnet
-    - r-rpart
-    - r-survival
     - r-broom
     - r-dplyr
+    - r-lattice
     - r-mitml
+    - r-nnet
     - r-rlang
+    - r-rpart
+    - r-survival
 
 test:
   commands:
     - $R -e "library('mice')"           # [not win]
+    - "\"%R%\" -e \"library('mice')\""  # [win]
 
 about:
-  home: 'http://stefvanbuuren.github.io/mice/'
-  license: 'GPL-2,GPL-3'
-  license_file: '{{ environ["RECIPE_DIR"] }}/LICENSE'
-  summary: |
-    Multiple imputation using Fully Conditional Specification (FCS) implemented by the
+  home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.nl , http://www.multiple-imputation.com
+  license: GPL-2 | GPL-3
+  summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the
     MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
     Each variable has its own imputation model. Built-in imputation models are provided
     for continuous data (predictive mean matching, normal), binary data (logistic regression),
@@ -70,13 +72,34 @@ about:
     model, pan, second-level variables). Passive imputation can be used to maintain
     consistency between variables. Various diagnostic plots are available to inspect
     the quality of the imputations.
-  license_family: 'GPL'
+  license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
+    - conda-forge/r
     - slacalle
+
+# Package: mice
+# Type: Package
+# Version: 3.3.0
+# Title: Multivariate Imputation by Chained Equations
+# Date: 2018-07-27
+# Authors@R: c(person("Stef", "van Buuren", role = c("aut","cre"), email = "stef.vanbuuren@tno.nl"), person("Karin", "Groothuis-Oudshoorn", role = "aut", email = "c.g.m.oudshoorn@utwente.nl"), person("Alexander", "Robitzsch", role = "ctb", email = "robitzsch@ipn.uni-kiel.de"), person("Gerko","Vink", role = "ctb", email = "g.vink@uu.nl"), person("Lisa","Doove", role = "ctb", email = "lisa.doove@ppw.kuleuven.be"), person("Shahab","Jolani", role = "ctb", email = "s.jolani@maastrichtuniversity.nl"), person("Rianne","Schouten", role = "ctb", email = "R.M.Schouten@uu.nl"), person("Philipp","Gaffert", role = "ctb", email = "philipp.gaffert@gfk.com"), person("Florian","Meinfelder", role = "ctb", email = "florian.meinfelder@uni-bamberg.de"), person("Bernie","Gray", role = "ctb", email = "bfgray3@gmail.com"))
+# Maintainer: Stef van Buuren <stef.vanbuuren@tno.nl>
+# Depends: methods, R (>= 2.10.0), lattice
+# Imports: broom, dplyr, grDevices, graphics, MASS, mitml, nnet, parallel, Rcpp, rlang, rpart, splines, stats, survival, utils
+# Suggests: AGD, CALIBERrfimpute, DPpackage, gamlss, lme4, mitools, nlme, pan, randomForest, Zelig, BSDA, knitr, rmarkdown, testthat, HSAUR3, micemd, miceadds, tidyr
+# LinkingTo: Rcpp
+# Description: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.
+# License: GPL-2 | GPL-3
+# LazyLoad: yes
+# LazyData: yes
+# URL: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.nl , http://www.multiple-imputation.com
+# BugReports: https://github.com/stefvanbuuren/mice/issues
+# RoxygenNote: 6.0.1
+# NeedsCompilation: yes
+# Packaged: 2018-07-27 08:22:52 UTC; buurensv
+# Author: Stef van Buuren [aut, cre], Karin Groothuis-Oudshoorn [aut], Alexander Robitzsch [ctb], Gerko Vink [ctb], Lisa Doove [ctb], Shahab Jolani [ctb], Rianne Schouten [ctb], Philipp Gaffert [ctb], Florian Meinfelder [ctb], Bernie Gray [ctb]
+# Repository: CRAN
+# Date/Publication: 2018-07-27 10:10:03 UTC
