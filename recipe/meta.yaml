@@ -1,4 +1,4 @@
-{% set version = "3.8.0" %}
+{% set version = "3.9.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mice/mice_{{ version }}.tar.gz
-  sha256: 04bc18d6cf225d626d4a5d52dd98a30a19662ae14263c83b51744efce25e7ec5
+  sha256: 96d9813c344238ac6ba9c8b774de2230cc608bd52f74bcbf7bc85c1c055bccf3
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -64,17 +64,11 @@ test:
 about:
   home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.name , http://www.stefvanbuuren.name/fimd/
   license: GPL-2 | GPL-3
-  summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the
-    MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>.
-    Each variable has its own imputation model. Built-in imputation models are provided
-    for continuous data (predictive mean matching, normal), binary data (logistic regression),
-    unordered categorical data (polytomous logistic regression) and ordered categorical
-    data (proportional odds). MICE can also impute continuous two-level data (normal
-    model, pan, second-level variables). Passive imputation can be used to maintain
-    consistency between variables. Various diagnostic plots are available to inspect
-    the quality of the imputations.
+  summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching,
+    normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables.
+    Various diagnostic plots are available to inspect the quality of the imputations.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
