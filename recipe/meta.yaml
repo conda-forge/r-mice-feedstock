@@ -1,4 +1,4 @@
-{% set version = "3.10.0.1" %}
+{% set version = "3.11.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mice/mice_{{ version }}.tar.gz
-  sha256: 68e072d5b884901a35bd1dda1652a7c715206ac10c33e9944a24281f8b482e5b
+  sha256: d8919646c5210ec6fc62c0c79f09e884c0be7e05da771f33cb00503138635cbd
 
 build:
   merge_build_host: true  # [win]
