@@ -1,4 +1,4 @@
-{% set version = "3.15.0" %}
+{% set version = "3.16.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mice/mice_{{ version }}.tar.gz
-  sha256: 3d64dd260e3dce9c4c2f7be8c99f3063769df9ccfd3a0fc827c2de0ac842e87b
+  sha256: 29f0285185a540337e9dde2357690c82d174f115be701ee2f0a7083173a44040
 
 build:
   merge_build_host: true  # [win]
@@ -30,31 +30,36 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-mass
     - r-rcpp
     - r-broom
+    - r-cpp11
     - r-dplyr
+    - r-generics
+    - r-glmnet
     - r-lattice
     - r-mitml
     - r-nnet
     - r-rlang
     - r-rpart
-    - r-survival
+    - r-tidyr
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
-    - r-mass
     - r-rcpp
     - r-broom
+    - r-cpp11
     - r-dplyr
+    - r-generics
+    - r-glmnet
     - r-lattice
     - r-mitml
     - r-nnet
     - r-rlang
     - r-rpart
-    - r-survival
+    - r-tidyr
 
 test:
   commands:
@@ -68,7 +73,8 @@ about:
     normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables.
     Various diagnostic plots are available to inspect the quality of the imputations.
   license_family: GPL3
-  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
