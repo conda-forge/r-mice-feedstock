@@ -19,21 +19,32 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
-    - {{ compiler('cxx') }}            # [not win]
-    - {{ compiler('m2w64_cxx') }}      # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-rcpp                       # [build_platform != target_platform]
+    - r-broom                      # [build_platform != target_platform]
+    - r-cpp11                      # [build_platform != target_platform]
+    - r-dplyr                      # [build_platform != target_platform]
+    - r-generics                   # [build_platform != target_platform]
+    - r-glmnet                     # [build_platform != target_platform]
+    - r-lattice                    # [build_platform != target_platform]
+    - r-mitml                      # [build_platform != target_platform]
+    - r-nnet                       # [build_platform != target_platform]
+    - r-rlang                      # [build_platform != target_platform]
+    - r-rpart                      # [build_platform != target_platform]
+    - r-tidyr                      # [build_platform != target_platform]
+    - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
+    - {{ compiler('cxx') }}        # [not win]
+    - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}make
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
-    - r-rcpp
     - r-broom
     - r-cpp11
     - r-dplyr
@@ -42,12 +53,12 @@ requirements:
     - r-lattice
     - r-mitml
     - r-nnet
+    - r-rcpp
     - r-rlang
     - r-rpart
     - r-tidyr
   run:
     - r-base
-    - r-rcpp
     - r-broom
     - r-cpp11
     - r-dplyr
@@ -56,6 +67,7 @@ requirements:
     - r-lattice
     - r-mitml
     - r-nnet
+    - r-rcpp
     - r-rlang
     - r-rpart
     - r-tidyr
@@ -66,13 +78,16 @@ test:
     - "\"%R%\" -e \"library('mice')\""  # [win]
 
 about:
-  home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.name , http://www.stefvanbuuren.name/fimd/
+  home: https://www.stefvanbuuren.name , https://www.stefvanbuuren.name/fimd/
+  dev_url: https://github.com/stefvanbuuren/mice/
+  doc_url: https://stefvanbuuren.github.io/mice/
   license: GPL-2.0-or-later
   summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching,
     normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables.
     Various diagnostic plots are available to inspect the quality of the imputations.
   license_family: GPL3
   license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
