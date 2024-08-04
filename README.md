@@ -7,33 +7,34 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mice-feedstoc
 About r-mice
 ------------
 
-Home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.name , http://www.stefvanbuuren.name/fimd/
+Home: https://www.stefvanbuuren.name , https://www.stefvanbuuren.name/fimd/
 
 Package license: GPL-2.0-or-later
 
 Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.
+
+Development: https://github.com/stefvanbuuren/mice/
+
+Documentation: https://stefvanbuuren.github.io/mice/
 
 About r-mice
 ------------
 
-Home: http://stefvanbuuren.github.io/mice/ , http://www.stefvanbuuren.name , http://www.stefvanbuuren.name/fimd/
+Home: https://www.stefvanbuuren.name , https://www.stefvanbuuren.name/fimd/
 
 Package license: GPL-2.0-or-later
 
 Summary: Multiple imputation using Fully Conditional Specification (FCS) implemented by the MICE algorithm as described in Van Buuren and Groothuis-Oudshoorn (2011) <doi:10.18637/jss.v045.i03>. Each variable has its own imputation model. Built-in imputation models are provided for continuous data (predictive mean matching, normal), binary data (logistic regression), unordered categorical data (polytomous logistic regression) and ordered categorical data (proportional odds). MICE can also impute continuous two-level data (normal model, pan, second-level variables). Passive imputation can be used to maintain consistency between variables. Various diagnostic plots are available to inspect the quality of the imputations.
+
+Development: https://github.com/stefvanbuuren/mice/
+
+Documentation: https://stefvanbuuren.github.io/mice/
 
 Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/r-mice-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/r-mice-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -100,6 +101,20 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1355&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-mice-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_r_base4.4" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.3</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1355&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-mice-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.3" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.4</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1355&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-mice-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.4" alt="variant">
                 </a>
               </td>
             </tr><tr>
@@ -245,6 +260,6 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@conda-forge/r](https://github.com/conda-forge/r/)
+* [@conda-forge/r](https://github.com/orgs/conda-forge/teams/r/)
 * [@slacalle](https://github.com/slacalle/)
 
