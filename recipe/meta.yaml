@@ -1,4 +1,4 @@
-{% set version = "3.18.0" %}
+{% set version = "3.19.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/mice_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/mice/mice_{{ version }}.tar.gz
-  sha256: c0ce097a7f68edd2f4d6a3e6bfb133886e709513299dafdac79ec549c93edfa2
+  sha256: b87e57d1834043f41afe9e30bba572e4c7227d5bb1973eb477297f298919d221
 
 build:
   number: 0
